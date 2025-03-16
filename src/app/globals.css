@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0, 0%, 99%;
+    --foreground: 0, 0%, 4%;
+
+    --muted: 0, 0%, 91%;
+    --muted-foreground: 0, 0%, 7%;
+
+    --accent: 216, 20%, 87%;
+    --accent-foreground: 0, 0%, 11%;
+
+    --accent-secondary: 216, 76%, 48%;
+
+    --page-transition: 49, 25%, 74%;
+
+    --border: 0, 0%, 96%;
+    --input: 0, 0%, 79%;
+    --ring: 0, 0%, 42%;
+
+    --destructive: 0, 59%, 50%;
+    --destructive-foreground: 0, 50%, 59%;
+
+    --success: 120, 100%, 27%;
+
+    --primary: 0, 0%, 87%;
+    --primary-foreground: 0, 0%, 23%;
+
+    --secondary: 0, 0%, 77%;
+    --secondary-foreground: #444444;
+
+    --white: 0, 0%, 95%;
+    --black: 0, 0%, 7%;
+
+    --minus-nav-height: calc(100vh - 62px);
+  }
+
+  .dark {
+    --background: 0, 0%, 3%;
+    --foreground: 0, 0%, 100%;
+
+    --muted: 0, 0%, 31%;
+    --muted-foreground: 0, 0%, 96%;
+
+    --accent: 0, 0%, 19%;
+    --accent-foreground: 0, 0%, 92%;
+
+    /* --accent-secondary: 49, 85%, 50%; */
+    --accent-secondary: 216, 76%, 48%;
+
+    --page-transition: 0, 0%, 6%;
+
+    --border: 0, 0%, 15%, 0.22;
+    --input: 0, 0%, 15%;
+    --ring: 0, 0%, 20%;
+
+    --destructive: 0, 80%, 52%;
+    --destructive-background: 0, 84% 75%, 0.89;
+
+    --success: 11, 89%, 11%;
+    --success-background: 119, 69%, 85%, 0.722;
+
+    --primary: 0, 0%, 7%;
+    --primary-foreground: 0, 0%, 81%;
+
+    --secondary: 0, 0%, 11%;
+    --secondary-foreground: 0, 0%, 52%;
+
+    --white: 0, 0%, 95%;
+    --black: 0, 0%, 7%;
+
+    --minus-nav-height: calc(100vh - 62px);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-background/80 text-foreground;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
+  }
+
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  .svg > svg {
+    @apply h-6 w-6 fill-primary-foreground group-hover:fill-foreground duration-300;
+  }
+}
+
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .curve > svg,
+  .curve .background {
+    position: fixed;
+    height: calc(100vh + 600px);
+    width: 100vw;
+    pointer-events: none;
+    left: 0;
+    top: 0;
+    z-index: 999998;
+  }
+
+  .curve .background {
+    background-color: var(--background);
+    transition: opacity 0s linear 0.1s;
+  }
+
+  .curve .route {
+    position: absolute;
+    left: 50%;
+    top: 24rem;
+    color: white;
+    font-size: 46px;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 999999;
+    pointer-events: none;
+  }
+}
+
+.bg-blur {
+  filter: blur(5px) brightness(0.7);
+  transition: all 0.3s ease;
+  pointer-events: none;
+  user-select: none;
+  position: relative;
+  z-index: -50;
+}
