@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 
-import { Contact } from "@prisma/client";
+import { Contact as ContactType } from "@prisma/client";
 
 import { ArrowUpRight } from "@/components/ui/Icons";
 import Container from "@/components/Container";
@@ -11,7 +11,7 @@ import MotionList from "@/components/animation/motion-list";
 import ContactForm from "../ui/contact-form";
 
 interface ContactProps {
-  contacts: Contact[] | null;
+  contacts: ContactType[] | null;
 }
 
 const Contact = ({ contacts }: ContactProps) => {
